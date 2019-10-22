@@ -1,1 +1,4 @@
-export default () => <span>hello</span>
+
+export default () => (
+ <span>sss</span>
+)
