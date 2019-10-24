@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "next start",
     "build": "next build",
-    "dev": "next dev"
+    "dev": "node serve.js"
   },
   "author": "",
   "license": "ISC",

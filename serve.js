@@ -14,15 +14,24 @@ app.prepare().then(() => {
   const server = new Koa()
   const router = new Router()
 
-  router.get('/test', ctx => {
-    ctx.body = { a: 111 }
-    ctx.set('Content-Type', 'application/json')
+  // router.get('/test', ctx => {
+  //   ctx.body = { a: 111 }
+  //   ctx.set('Content-Type', 'application/json')
+  // })
+
+  router.get('/a/:id', async ctx => {
+    const id = ctx.params.id
+    await handle(ctx.req, ctx.res, {
+      pathname: '/a',
+      query: { id }
+    })
+    ctx.respond = false
   })
 
-  // server.use(async (ctx, next) => {
-  //   await handle(ctx.req, ctx.res)
-  //   ctx.respond = false
-  // })
+  server.use(async (ctx, next) => {
+    await handle(ctx.req, ctx.res)
+    ctx.respond = false
+  })
 
   server.use(router.routes())
 

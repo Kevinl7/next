@@ -1,4 +1,10 @@
+import { Button } from 'antd'
+import Link from 'next/link'
+export default () => {
 
-export default () => (
- <span>sss</span>
-)
+  return (
+    <Link href='/b'>
+      <Button>点击</Button>
+    </Link>
+  )
+}
