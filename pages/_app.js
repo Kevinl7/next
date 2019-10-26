@@ -1,5 +1,6 @@
 import App, { Container } from 'next/app'
 
+import Layout from '../components/Layout'
 import 'antd/dist/antd.css'
 
 class MyApp extends App {
@@ -15,7 +16,9 @@ class MyApp extends App {
 
     return (
       <Container>
-        <Component />
+        <Layout>
+          <Component />
+        </Layout>
       </Container>
     )
   }
