@@ -3,11 +3,18 @@ import { Layout, Icon, Input, Avatar } from 'antd'
 
 const {Header, Content, Footer } = Layout
 
+import Container from './Container'
+
 const githubStyle = {
   color: 'white',
   fontSize: 40,
   marginTop: 12
 }
+
+const Comp = ({children, color}) => {
+  return <div style={{color, ...color}}>{children}</div>
+}
+
 
 export default ({children}) => {
 
@@ -39,7 +46,11 @@ export default ({children}) => {
         </div>
         
       </Header>
-      <Content>{children}</Content>
+      <Content>
+        <Container renderer={<Comp color="red"></Comp>}>
+          {children}
+        </Container>
+      </Content>
       <style jsx>
         {`
           .header-content {
@@ -47,7 +58,13 @@ export default ({children}) => {
             justify-content: space-between;
           }
          
-
+        `}
+      </style>
+      <style jsx global>
+        {`
+          #__next {
+            height: 100%;
+          }
         `}
       </style>
     </Layout>
