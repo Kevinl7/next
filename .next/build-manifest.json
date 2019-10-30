@@ -4,10 +4,6 @@
     "static/development/dll/dll_492c97d20afdca23aa1f.js.map"
   ],
   "pages": {
-    "/": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/_app": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
@@ -18,7 +14,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
+    "/b": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/c": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

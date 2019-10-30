@@ -28,6 +28,22 @@ app.prepare().then(() => {
     ctx.respond = false
   })
 
+  router.get('/', async ctx => {
+    console.log(ctx)
+    ctx.response.redirect('/b')
+    ctx.status = 301
+    
+    // next()
+  })
+
+  router.get('/b', async ctx => {
+    console.log(ctx)
+    ctx.redirect('/c')
+    ctx.status = 301
+    
+    // next()
+  })
+
   server.use(async (ctx, next) => {
     await handle(ctx.req, ctx.res)
     ctx.respond = false

@@ -4,7 +4,7 @@ export default () => {
   return (
     <Link href='/b'>
       {/* <Button>点击</Button> */}
-      <span>Indexz</span>
+      <span >sss</span>
     </Link>
   )
 }

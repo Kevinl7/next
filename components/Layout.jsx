@@ -1,7 +1,8 @@
 import { useState, useCallback } from 'react'
 import { Layout, Icon, Input, Avatar } from 'antd'
+// import { content } from 'react-redux'
 
-const {Header, Content, Footer } = Layout
+const { Header, Content, Footer } = Layout
 
 import Container from './Container'
 
@@ -11,12 +12,8 @@ const githubStyle = {
   marginTop: 12
 }
 
-const Comp = ({children, color}) => {
-  return <div style={{color, ...color}}>{children}</div>
-}
 
-
-export default ({children}) => {
+function MyLayout ({ children }) {
 
   const [search, setSearch] = useState('')
   const handleSearch = useCallback(
@@ -28,26 +25,30 @@ export default ({children}) => {
 
   return (
     <Layout>
+
       <Header>
-        <div className="header-content">
+        <Container renderer={<div className="header-content"></div>}>
           <div className="header-left">
-            <Icon type="github"  style={githubStyle} /> 
-          </div>
-          <div>
+            <div>
+            <Icon type="github" style={githubStyle} />
+            </div>
+            <div>
             <Input
               placeholder="搜索仓库"
               value={search}
               onChange={handleSearch}
             />
           </div>
-          <div >
-            <Avatar  icon="user" />
           </div>
-        </div>
-        
+
+          <div>
+            <Avatar icon="user" />
+          </div>
+        </Container>
+
       </Header>
       <Content>
-        <Container renderer={<Comp color="red"></Comp>}>
+        <Container>
           {children}
         </Container>
       </Content>
@@ -57,6 +58,10 @@ export default ({children}) => {
             display:flex;
             justify-content: space-between;
           }
+          .header-left {
+            display: flex;
+            flex: 1;
+          }
          
         `}
       </style>
@@ -65,8 +70,13 @@ export default ({children}) => {
           #__next {
             height: 100%;
           }
+          .ant-layout-header {
+            padding: 0;
+          }
         `}
       </style>
     </Layout>
   )
 }
+
+export default MyLayout
